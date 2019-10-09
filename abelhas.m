@@ -23,8 +23,9 @@ pos_seguidoras = [];
 pos_exploradoras = [];
 
 pos_total = [];
+
 % Coloca a posicao inicial das abelhas operarias,
-% inicialmente aleatorio
+% a primeiras posicoes sao aleatorias
 for a=1 : operarias 
   pos_operarias(a,1) = limite_y + rand()*(limite_x - limite_y);
   pos_operarias(a,2) = limite_y + rand()*(limite_x - limite_y);
@@ -32,7 +33,7 @@ for a=1 : operarias
   pos_total(a,2) = pos_operarias(a,2);
 end
 
-% Plot
+% Plota o grafico da funcao
 X = linspace(-limite_x,limite_x,100);
 Y = linspace(-limite_y,limite_y,100);
 fig = figure();
@@ -46,6 +47,7 @@ shading interp;
 
 hold on;
 
+% Plota a distribuicao inicial das abelhas operarias
 for i=1:operarias  
   scatter3(pos_operarias(i,1), pos_operarias(i,2), f(pos_operarias(i,1), pos_operarias(i,2)),25,1);
 end
@@ -63,9 +65,12 @@ end
 
 cont = 0;
 melhor = [1,1];
+interacoes = 0;
 
 while 1
+  interacoes = interacoes + 1;
   cont = cont + 1;
+
   % Cria o vetor de probabilidades dos pontos
   prob = [];
   
