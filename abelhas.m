@@ -184,4 +184,3 @@ disp("interações:")
 disp(cont)
 disp("melhor ponto: ")
 disp(melhor)
-
